@@ -1,9 +1,27 @@
-# Trabajo-Integrador-Final-Django
+# Trabajo-Integrador-Final-Django (WIP)
 
-<h3>ENUNCIADO</h3> 
+<h3>¿Que es esto?</h3> 
 
-La empresa JAGUARETE KAA S.A. quiere realizar un sitio web para exponer los productos que tiene
-para venderlos aprovechando el auge del eCommerce y dentro de sus requerimientos está lo
-siguiente.
-La empresa quiere que todas las páginas del sitio sean homogéneas además de que puedan verse
-bien en computadoras de escritorio, tablets o teléfonos celulares.
+Esto es el trabajo integrador que me piden en el curso DESARROLLO WEB FULLSTACK CON PYTHON Y JAVASCRIPT (2021) de PoloTIC Misiones para darme el certificado.
+Por favor, primero lee el [enunciado](https://github.com/agus-droid/Trabajo-Integrador-Final-Django/blob/main/Enunciado.pdf).
+
+<h3>¿Como hago para que funcione?</h3>
+
+Es muy sencillo, primero que nada hay que tener Python 3, Django y Git instalados. 
+Ya voy a agregar instrucciones para esto.<br>
+
+Bueno, primero tenemos que clonar el repositorio:
+
+    git clone https://github.com/agus-droid/Trabajo-Integrador-Final-Django.git
+
+Ahora nos movemos dentro de la carpeta que se acaba de crear:
+
+    cd .\Trabajo-Integrador-Final-Django\
+
+Por último tenemos que prender el servidor:
+
+    python .\manage.py runserver
+    
+<h3>¿Donde veo el trabajo? ¿Me acabás de hackear? Con razón no te da bola ninguna mujer.</h3>
+
+Para ver el trabajo nos dirigimos a http://127.0.0.1:8000/app/ desde un navegador.
