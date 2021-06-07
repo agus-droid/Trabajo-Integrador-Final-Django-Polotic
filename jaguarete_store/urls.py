@@ -1,4 +1,4 @@
-"""trabajoIntegradorPython URL Configuration
+"""jaguarete_store URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-#from django.contrib import admin
+from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='signin'),
+    path('admin/', admin.site.urls),
+    path('usuarios/login', views.login_view, name='login'),
+    path('', views.index, name='index'),
 ]
