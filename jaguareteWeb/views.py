@@ -6,4 +6,4 @@ from django.http import HttpResponse
 #    return HttpResponse("<h1 style=\"color:blue;font-family:Monospace\"> Holiwis</h1>")
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "signin.html")
