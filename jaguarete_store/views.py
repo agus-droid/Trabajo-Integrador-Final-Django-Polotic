@@ -1,6 +1,8 @@
+from jaguarete_store.forms import RegisterForm
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import RegisterForm
 
 def index(request):
     return render(request,'index.html',{
@@ -27,4 +29,15 @@ def login_view(request):
 
     return render(request, 'users/login.html', {
 
+    })
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'La sesión se cerró exitosamente')
+    return redirect('login')
+
+def register(request):
+    form = RegisterForm()
+    return render(request, 'users/register.html',{
+        'form': form
     })
