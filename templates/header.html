@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    <img src='../static/images/208568_original_3840x3760.jpg' alt="Acá va el logo" width="100px">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-2">
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'login' %}">
+          <span class="fas fa-user"></span>
+          Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">
+          <span class="fas fa-user"></span>
+          Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">
+          <span class="fas fa-sign-in-alt"></span>
+          Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+          <span class="fas fa-shopping-cart"></span>
+          Carrito</a>
+        </li>                      
+      </ul>
+    </div>
+  </div>
+</nav>
