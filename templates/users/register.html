@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
             <div class="col">
-                <h2>Registro</h2>
+                <h2>{{ title }}</h2>
                 <form method="post">
                     {% csrf_token %}
                     {% for field in form %}
@@ -13,8 +13,7 @@
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <input type="checkbox" onclick="showPassword()"> Ver contraseña
-                    <br>
+                    <input type="checkbox" class="mb-4" onclick="showPassword()"> Ver contraseña
                     <br>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>

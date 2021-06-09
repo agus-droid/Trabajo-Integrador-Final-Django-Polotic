@@ -1,3 +1,4 @@
+from products.models import Product
 from jaguarete_store.forms import RegisterForm
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
@@ -6,17 +7,16 @@ from django.contrib import messages
 from .forms import RegisterForm
 
 def index(request):
+    products = Product.objects.all().order_by('-id')
     return render(request,'index.html',{
         'message':'Listado de productos',
         'title':'Productos',
-        'products':[
-            {'title': 'Milanesas', 'price':'800', 'stock':True},
-            {'title': 'Papas Fritas', 'price':'120', 'stock':True},
-            {'title': 'Lamborghini Aventador LP700-4', 'price':'8000000', 'stock':False},
-        ]
+        'products': products
     })
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')   
     if request.method =='POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -29,7 +29,7 @@ def login_view(request):
             messages.error(request, 'Usuario y/o contraseña invalido/s')
 
     return render(request, 'users/login.html', {
-
+        'title': 'Iniciar sesión'
     })
 
 def logout_view(request):
@@ -38,6 +38,8 @@ def logout_view(request):
     return redirect('login')
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('index')    
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         username = form.cleaned_data.get('username')
@@ -49,5 +51,11 @@ def register(request):
             messages.success(request, 'Usuario creado')
             return redirect('index')
     return render(request, 'users/register.html',{
-        'form': form
+        'form': form,
+        'title': 'Registro'
+    })
+
+def about(request):
+    return render(request, 'about.html',{
+        'title': 'Acerca de...'
     })

@@ -2,13 +2,13 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
-    username =  forms.CharField(label='Nombre de Usuario',required=True, min_length=4, widget=forms.TextInput(attrs={
+    username =  forms.CharField(label='Nombre de Usuario',required=True, min_length=4, max_length=50,widget=forms.TextInput(attrs={
         'class':'form-control', 'id':'username'
     }))
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         'class':'form-control', 'id':'email', 'placeholder':'email@ejemplo.com' 
     }))
-    password = forms.CharField(label='Contraseña',required=True, min_length=4, widget=forms.PasswordInput(attrs={
+    password = forms.CharField(label='Contraseña',required=True, min_length=4, max_length=50,widget=forms.PasswordInput(attrs={
         'class':'form-control', 'id':'password'
     }))
 

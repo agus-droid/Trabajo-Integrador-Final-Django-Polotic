@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
             <div class="col">
-                <h1>{{ message }}</h1>
+                <h1>{{ title }}</h1>
                 <ul class="list-group"> 
-                    {% for product in products %}
+                    {% for product in object_list %}
                         <li class="list-group-item">
-                            {{product.title}}
+                            {{ product.title }}
                             <span>
-                                {% if product.stock %}
-                                    <span class="text-success">Disponible</span>
-                                {% else %}
-                                    <span class="text-danger">No disponible</span>
-                                {% endif %}
+                                <span class="text-success">{{ product.price }}</span>
                             </span>
                         </li>
                     {% endfor %}
