@@ -27,7 +27,8 @@ urlpatterns = [
     path('usuarios/registro', views.register, name='register'),
     path('acerca/', views.about, name='about'),
     path('', ProductListView.as_view(), name='index'),
-    path('productos/', include('products.urls'))
+    path('productos/', include('products.urls')),
+    path('carrito/', include('carts.urls'))
 ]
 
 if settings.DEBUG:
