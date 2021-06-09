@@ -1,5 +1,5 @@
+from django.db.models.query_utils import Q
 from products.models import Product
-#from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Product
@@ -27,7 +27,8 @@ class ProductDetailView(DetailView):
 class ProductSearchListView(ListView):
     template_name = 'products/search.html' 
     def get_queryset(self):
-        return Product.objects.filter(title__icontains=self.query())
+        filters = Q(title__icontains=self.query()) | Q(category__title__icontains=self.query())
+        return Product.objects.filter(filters)
     def query(self):
         return self.request.GET.get('q')
     def get_context_data(self, **kwargs):

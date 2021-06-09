@@ -5,6 +5,6 @@
             <img src="{{ product.image.url }}" alt="Imagen del Producto" class="card-img-top" height="300">
         {% endif %}
         <p class="card-text">{{ product.description }}</p>
-        <a href="#" class="btn btn-primary">Ver</a>                    
+        <a href="{% url 'products:product' product.slug %}" class="btn btn-primary">Ver</a>                    
     </div>
 </div>
