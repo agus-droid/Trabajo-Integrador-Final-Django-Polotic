@@ -9,8 +9,6 @@ from .forms import RegisterForm
 def index(request):
     products = Product.objects.all().order_by('-id')
     return render(request,'index.html',{
-        'message':'Listado de productos',
-        'title':'Productos',
         'products': products
     })
 

@@ -1,20 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="col">
-    <h1 class="text-center">{{ title }}</h1>
+    <h1>{{ title }}</h1>
         <div class="row">
-            {% for product in object_list %}
+            {% for object in object_list %}
                 <div class="col-sm-6">
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.title }}</h5>
-                            {% if product.image %}
-                                <img src="{{ product.image.url }}" alt="Imagen del Producto" class="card-img-top">
-                            {% endif %}
-                            <p class="card-text">{{ product.description }}</p>
-                            <a href="#" class="btn btn-primary">Ver</a>                    
-                        </div>
-                    </div>
+                    {% include 'products/snippets/product.html' with product=object %}
                 </div>
             {% endfor %} 
         </div>
