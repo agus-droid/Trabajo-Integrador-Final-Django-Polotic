@@ -12,25 +12,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-2">
         {% if user.is_authenticated %}
-        <li class="nav-item {% if request.path == logout %}active{% endif %}">
-          <a class="nav-link" href="{{ logout }}">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == logout %}active{% endif %}" href="{{ logout }}">
           <span class="fas fa-sign-in-alt"></span>
           Logout</a>
         </li>
         {% else %}
-        <li class="nav-item {% if request.path == login %}active{% endif %}">
-          <a class="nav-link" href="{{ login }}">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == login %}active{% endif %}" href="{{ login }}">
           <span class="fas fa-user"></span>
           Login</a>
         </li>
-        <li class="nav-item {% if request.path == register %}active{% endif %}">
-          <a class="nav-link" href="{{ register }}">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == register %}active{% endif %}" href="{{ register }}">
           <span class="fas fa-user-plus"></span>
           Registro</a>
         </li>
         {% endif %}
-        <li class="nav-item {% if request.path == cart %}active{% endif %}">
-          <a class="nav-link" href="{{ cart }}">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == cart %}active{% endif %}" href="{{ cart }}">
           <span class="fas fa-shopping-cart"></span>
           Carrito</a>
         </li>                      
