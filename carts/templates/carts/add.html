@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load product_extras %}
 {% block content %}
     <div class="col-3">
         {% if product.image %}
@@ -11,10 +12,10 @@
             Producto agregado al carrito de compras
         </h3>
         <h4 class="text-danger">
-            ${{ product.price }}
+            {{ product.price | price_format }}
         </h4>
         <a class="btn btn-primary" href="{% url 'products:product' product.slug %}">
-            Volver
+            Volver al producto
         </a>
     </div>
 {% endblock %}
