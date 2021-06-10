@@ -5,12 +5,12 @@
 
     {% if cart.products.exists %}
 
-        <div class="col-8">
+        <div class="col-8 card card-body">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Producto</th>
                         <th scope="col"></th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
@@ -45,6 +45,18 @@
         </div>
 
         <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="">
+                        Subtotal: <span class="text-danger">{{ cart.subtotal | price_format }}</span>
+                    </div>
+                    <div class="mt-2">
+                        <a class="btn btn-danger mb-2" href="#">Vaciar carrito</a>
+                        <a class="btn btn-warning mb-2" href="#">Finalizar compra</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     {% else %}
         <div class="col">
