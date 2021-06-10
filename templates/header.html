@@ -13,6 +13,11 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-2">
         {% if user.is_authenticated %}
         <li class="nav-item">
+          <a class="nav-link">
+          <span class="fas fa-user"></span>
+          {{user.username}}</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {% if request.path == logout %}active{% endif %}" href="{{ logout }}">
           <span class="fas fa-sign-in-alt"></span>
           Logout</a>
