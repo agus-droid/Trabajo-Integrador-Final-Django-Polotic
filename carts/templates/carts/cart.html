@@ -14,6 +14,7 @@
                         <th scope="col"></th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +34,9 @@
                             <th>1</th>
                             <th>
                                 <span class="text-danger">{{ product.price | price_format }}</span>
+                            </th>
+                            <th>
+                                {% include 'carts/snippets/remove.html' %}
                             </th>
                         </tr>
                     {% endfor %}

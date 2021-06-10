@@ -14,8 +14,8 @@
         <h4 class="text-danger">
             {{ product.price | price_format }}
         </h4>
-        <a class="btn btn-primary" href="{% url 'products:product' product.slug %}">
-            Volver al producto
+        <a class="btn btn-primary" href="{% url 'index' %}">
+            Volver al inicio
         </a>
     </div>
 {% endblock %}
