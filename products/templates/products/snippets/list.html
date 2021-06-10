@@ -1,7 +1,11 @@
-<div class="row">
-    {% for object in object_list %}
-        <div class="col">
-            {% include 'products/snippets/product.html' with product=object %}
+        <h3 class="mt-2">Mas productos</h3>
+        <div class="card">
+            <ul class="list-group">
+                    {% for product in list %}
+                        <a class="list-group-item list-group-item-action" href="{% url 'products:product' product.slug %}">
+                            <span class="fw-bolder">{{ product.title }}</span>
+                            <span class="fw-light">{{ product.description }}</span>
+                        </a> 
+                    {% endfor %}
+            </ul>
         </div>
-    {% endfor %}
-</div> 

@@ -7,11 +7,12 @@ from users.models import User
 from django.contrib import messages
 from .forms import RegisterForm
 
-def index(request):
+'''def index(request):
     products = Product.objects.all().order_by('-id')
+    print('hola')
     return render(request,'index.html',{
         'products': products
-    })
+    })'''
 
 def login_view(request):
     if request.user.is_authenticated:
