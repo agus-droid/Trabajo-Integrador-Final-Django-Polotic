@@ -11,5 +11,8 @@
     <h5 class="font-weight-bold">
         Precio: <span class="text-danger">${{ product.price }}</span>
     </h5>
+    <div class="">
+        {% include 'carts/snippets/add.html' %}
+    </div>
 </div>
 {% endblock %}
