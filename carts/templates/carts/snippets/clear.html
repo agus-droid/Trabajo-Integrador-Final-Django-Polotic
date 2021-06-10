@@ -1,0 +1,4 @@
+<form class="mb-2" method="post" action="{% url 'carts:clear' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Vaciar carrito</button>
+</form>

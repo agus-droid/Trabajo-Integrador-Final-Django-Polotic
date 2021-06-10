@@ -23,3 +23,8 @@ def remove(request):
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))
     cart.products.remove(product)
     return redirect('carts:cart')
+
+def clear(request):
+    cart = get_or_create_cart(request)
+    cart.products.clear()
+    return redirect('carts:cart')

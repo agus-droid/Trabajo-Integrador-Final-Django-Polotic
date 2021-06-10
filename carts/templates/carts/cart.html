@@ -51,7 +51,7 @@
                         Subtotal: <span class="text-danger">{{ cart.subtotal | price_format }}</span>
                     </div>
                     <div class="mt-2">
-                        <a class="btn btn-danger mb-2" href="#">Vaciar carrito</a>
+                        {% include 'carts/snippets/clear.html' %}
                         <a class="btn btn-warning mb-2" href="#">Finalizar compra</a>
                     </div>
                 </div>
