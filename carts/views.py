@@ -19,7 +19,9 @@ def add(request):
                                                                     product=product, 
                                                                     quantity=quantity)
     return render(request, 'carts/add.html',{
-        'product': product
+        'quantity':quantity,
+        'product': product,
+        'cart_product': cart_product
     })
 
 def remove(request):

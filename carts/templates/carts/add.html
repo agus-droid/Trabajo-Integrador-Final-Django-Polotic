@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load product_extras %}
+{% load cart_extras %}
 {% block content %}
     <div class="col-3">
         {% if product.image %}
@@ -9,7 +10,7 @@
     <div class="col">
         <h1>{{ product.title }}</h1>
         <h3 class="text-success">
-            Producto agregado al carrito de compras
+            {{ quantity | quantity_add_format }}
         </h3>
         <h4 class="text-danger">
             {{ product.price | price_format }}
