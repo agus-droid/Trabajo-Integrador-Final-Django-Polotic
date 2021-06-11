@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.models import User
 from users.models import User
 from django.contrib import messages
-from .forms import RegisterForm
+from .forms import NewProductForm, RegisterForm
+from django.core.files.storage import FileSystemStorage
 
 '''def index(request):
     products = Product.objects.all().order_by('-id')
@@ -58,4 +59,20 @@ def register(request):
 def about(request):
     return render(request, 'about.html',{
         'title': 'Acerca de...'
+    })
+
+def new_product(request):
+    form = NewProductForm(request.POST, request.FILES)
+    if request.method == 'POST' and form.is_valid():
+        title = form.data.get('title')
+        description = form.data.get('description')
+        price = form.data.get('price')
+        product = Product(title=title, image=request.FILES['image'], description=description, price=price)
+        product.save()
+        if product:
+            messages.success(request, 'Producto agregado')
+            return redirect('index')
+    return render(request, 'new.html',{
+        'form':form ,
+        'title': 'Nuevo Producto'
     })

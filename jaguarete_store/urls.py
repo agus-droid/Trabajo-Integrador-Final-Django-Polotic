@@ -28,7 +28,8 @@ urlpatterns = [
     path('acerca/', views.about, name='about'),
     path('', ProductListView.as_view(), name='index'),
     path('productos/', include('products.urls')),
-    path('carrito/', include('carts.urls'))
+    path('carrito/', include('carts.urls')),
+    path('nuevo/', views.new_product, name='new_product'),
 ]
 
 if settings.DEBUG:
