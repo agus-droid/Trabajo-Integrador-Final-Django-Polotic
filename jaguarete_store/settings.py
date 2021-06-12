@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    "/jaguarete_store/static",
+    "/home/agusssosa/agusssosa.pythonanywhere.com/jaguarete_store/static"
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
