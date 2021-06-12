@@ -8,12 +8,12 @@ from django.contrib import messages
 from .forms import NewProductForm, RegisterForm
 from django.core.files.storage import FileSystemStorage
 
-'''def index(request):
+def index(request):
     products = Product.objects.all().order_by('-id')
     print('hola')
     return render(request,'index.html',{
         'products': products
-    })'''
+    })
 
 def login_view(request):
     if request.user.is_authenticated:
