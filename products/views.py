@@ -9,8 +9,8 @@ from .models import Product
 class ProductListView(ListView):
     template_name = 'index.html'
     queryset = Product.objects.all().order_by('-id')
+    
     # Esto es una negrada pero funciona
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Productos'
@@ -24,7 +24,6 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-#        print(context)
         return context  
 
 class ProductSearchListView(ListView):

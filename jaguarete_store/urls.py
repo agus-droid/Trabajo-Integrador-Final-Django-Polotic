@@ -30,6 +30,7 @@ urlpatterns = [
     path('productos/', include('products.urls')),
     path('carrito/', include('carts.urls')),
     path('nuevo/', views.new_product, name='new_product'),
+    path('orden/', include('orders.urls')),
 ]
 
 if settings.DEBUG:

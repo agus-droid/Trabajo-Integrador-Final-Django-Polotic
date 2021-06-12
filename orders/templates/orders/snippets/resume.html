@@ -1,0 +1,26 @@
+{% load product_extras %}
+<div class="card">
+    <div class="card-body">
+        <h4>Resumen del pedido</h4>
+    </div>
+    <div>
+        <table class="table table-borderless table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fw-bold">
+                    <td>Productos</td>
+                    <td>{{ cart.total | price_format }}</td>
+                </tr>
+                <tr class="fw-bold">
+                    <td>Envío</td>
+                    <td>{{ order.shipping_total | price_format }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

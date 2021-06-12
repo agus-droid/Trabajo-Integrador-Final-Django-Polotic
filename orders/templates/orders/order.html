@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Controla tu pedido</h1>
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                {% for product in cart.products.all %}
+                    {% include 'orders/snippets/product.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        {% include 'orders/snippets/resume.html' %}
+    </div>
+
+{% endblock %}

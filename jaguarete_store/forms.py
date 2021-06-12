@@ -33,7 +33,7 @@ class NewProductForm(forms.Form):
     description = forms.CharField(label='Descripción',required=True, widget=forms.Textarea(attrs={
         'class':'form-control', 'id':'description'
     }))
-    price = forms.DecimalField(label='Precio',max_digits=10, decimal_places=2, widget=forms.NumberInput(attrs={
+    price = forms.DecimalField(label='Precio',max_digits=16, decimal_places=2, widget=forms.NumberInput(attrs={
         'class':'form-control', 'id':'price'
     }))
     image = forms.ImageField(label='Imagen del Producto', required=True, widget=forms.FileInput(attrs={
