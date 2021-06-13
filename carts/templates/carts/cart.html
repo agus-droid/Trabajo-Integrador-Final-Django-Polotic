@@ -9,11 +9,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Producto</th>
-                        <th scope="col"></th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
+                        <th scope="col" class="text-center" >Producto</th>
+                        <th scope="col" class="text-center">Cantidad</th>
+                        <th scope="col" class="text-center">Precio</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -21,22 +19,19 @@
                     {% for cp in cart.products_related %}
                         {% with product=cp.product %}
                             <tr>
-                                <th>{{ forloop.counter }}</th>
-                                <th>
+                                <th class="text-center">
                                     {% if product.image %}
                                         <img src="{{ product.image.url }}" alt="Imagen del producto" width="60" height="60">
                                     {% endif %}
-                                </th>
-                                <th>
                                     <a class="" href="{% url 'products:product' product.slug %}">
                                         {{ product.title }}
                                     </a>
                                 </th>
-                                <th>{{ cp.quantity }}</th>
-                                <th>
+                                <th class="text-center">{{ cp.quantity }}</th>
+                                <th class="text-center">
                                     <span class="text-danger">{{ product.price | price_format }}</span>
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     {% include 'carts/snippets/remove.html' %}
                                 </th>
                             </tr>
@@ -46,7 +41,7 @@
             </table>
         </div>
 
-        <div class="col">
+        <div class="col mt-2">
             <div class="card">
                 <div class="card-body">
                     <div class="">

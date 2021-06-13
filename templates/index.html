@@ -2,7 +2,9 @@
 {% block content %}
 <div class="col">
     <h1>{{ title }}</h1>
+    <div class="d-flex justify-content-center">
     {% include 'products/snippets/cards.html' %}
+    </div>
     {% include 'products/snippets/list.html' %}
 </div>
 {% endblock %}
