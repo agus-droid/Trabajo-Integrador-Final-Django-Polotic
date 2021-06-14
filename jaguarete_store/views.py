@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.models import User
 from users.models import User
 from django.contrib import messages
-from .forms import NewProductForm, RegisterForm
+from .forms import RegisterForm
 from django.contrib.auth.decorators import user_passes_test
 
 def index(request):
@@ -65,24 +65,3 @@ def about(request):
         'title': 'Acerca de...'
     })
 
-@user_passes_test(lambda user: user.is_superuser)
-def new_product(request):
-    form = NewProductForm(request.POST, request.FILES)
-    if request.method == 'POST' and form.is_valid():
-        title = form.data.get('title')
-        description = form.data.get('description')
-        price = form.data.get('price')
-        cat_id = form.data.get('category')
-        product = Product(title=title, image=request.FILES['image'], description=description, price=price)
-        product.save()
-        if cat_id:
-            category = get_object_or_404(Category, id=cat_id)
-            category.save()
-            category.products.add(product)
-        if product:
-            messages.success(request, 'Producto agregado exitosamente')
-            return redirect('index')
-    return render(request, 'new.html',{
-        'form':form ,
-        'title': 'Nuevo Producto'
-    })

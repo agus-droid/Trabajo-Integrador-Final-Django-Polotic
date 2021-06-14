@@ -29,7 +29,6 @@ urlpatterns = [
     path('', ProductListView.as_view(), name='index'),
     path('productos/', include('products.urls')),
     path('carrito/', include('carts.urls')),
-    path('nuevo/', views.new_product, name='new_product'),
     path('orden/', include('orders.urls')),
 ]
 
