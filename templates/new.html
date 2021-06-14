@@ -7,6 +7,9 @@
         <div class="mb-3">
             {{ field.label_tag }}
             {{ field }}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
         </div>
         {% endfor %}
     <button type="submit" class="btn btn-primary">Cargar Producto</button>

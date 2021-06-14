@@ -1,7 +1,8 @@
+from categories.models import Category
 from django.http.response import HttpResponseRedirect
 from products.models import Product
 from jaguarete_store.forms import RegisterForm
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.models import User
 from users.models import User
@@ -71,10 +72,15 @@ def new_product(request):
         title = form.data.get('title')
         description = form.data.get('description')
         price = form.data.get('price')
+        cat_id = form.data.get('category')
         product = Product(title=title, image=request.FILES['image'], description=description, price=price)
         product.save()
+        if cat_id:
+            category = get_object_or_404(Category, id=cat_id)
+            category.save()
+            category.products.add(product)
         if product:
-            messages.success(request, 'Producto agregado')
+            messages.success(request, 'Producto agregado exitosamente')
             return redirect('index')
     return render(request, 'new.html',{
         'form':form ,

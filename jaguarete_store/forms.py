@@ -2,6 +2,7 @@ from django import forms
 #from django.contrib.auth.models import User
 from users.models import User
 from products.models import Product
+from categories.models import Category
 
 class RegisterForm(forms.Form):
     username =  forms.CharField(label='Nombre de Usuario',required=True, min_length=4, max_length=50,widget=forms.TextInput(attrs={
@@ -32,6 +33,9 @@ class NewProductForm(forms.Form):
     }))
     description = forms.CharField(label='Descripción',required=True, widget=forms.Textarea(attrs={
         'class':'form-control', 'id':'description'
+    }))
+    category = forms.ModelChoiceField(label='Categoría', queryset=Category.objects.all(), required=False, widget=forms.Select(attrs={
+        'class':'form-control', 'id':'category'
     }))
     price = forms.DecimalField(label='Precio',max_digits=16, decimal_places=2, widget=forms.NumberInput(attrs={
         'class':'form-control', 'id':'price'
