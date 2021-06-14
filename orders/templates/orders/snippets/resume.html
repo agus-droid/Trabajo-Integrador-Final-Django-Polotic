@@ -23,4 +23,13 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <hr>
+        <div class="fw-bold text-danger">
+            Total
+            <div class="d-inline-block">
+                {{ order.total | price_format }}
+            </div>
+        </div>
+    </div>
 </div>

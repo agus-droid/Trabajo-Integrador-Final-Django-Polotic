@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from products.models import Product
 from jaguarete_store.forms import RegisterForm
 from django.shortcuts import redirect, render
@@ -6,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from users.models import User
 from django.contrib import messages
 from .forms import NewProductForm, RegisterForm
-from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import user_passes_test
 
 def index(request):
     products = Product.objects.all().order_by('-id')
@@ -25,6 +26,8 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}.'.format(username))
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'])
             return redirect('index')
         else:
             messages.error(request, 'Usuario y/o contraseña invalido/s')
@@ -61,6 +64,7 @@ def about(request):
         'title': 'Acerca de...'
     })
 
+@user_passes_test(lambda user: user.is_superuser)
 def new_product(request):
     form = NewProductForm(request.POST, request.FILES)
     if request.method == 'POST' and form.is_valid():

@@ -24,6 +24,9 @@ class Cart(models.Model):
         self.update_subtotal()
         self.update_total()
 
+        if self.order:
+            self.order.update_total()
+
     def update_subtotal(self):
         self.subtotal = sum([
             cp.quantity * cp.product.price for cp in self.products_related()
@@ -36,6 +39,10 @@ class Cart(models.Model):
 
     def products_related(self):
         return self.cartproducts_set.select_related('product')
+    
+    @property
+    def order(self):
+        return self.order_set.first()
 
 class CartProductsManager(models.Manager):
     def create_or_update_quantity(self, cart, product, quantity=1):
