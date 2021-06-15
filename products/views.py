@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Product
 from django.contrib.auth.decorators import user_passes_test
-from .forms import NewProductForm
+from .forms import NewProductForm, EditProductForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from categories.models import Category
@@ -65,3 +65,16 @@ def new_product(request):
         'form':form ,
         'title': 'Nuevo Producto'
     })
+
+def edit_product(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    form = EditProductForm(request.POST, request.FILES, instance=product)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+    else:
+        form = EditProductForm()
+        return render(request, 'products/edit.html',{
+            'product':product,
+            'form':form
+        })
+# continuar trabajando en esta parte

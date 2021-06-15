@@ -1,3 +1,5 @@
+from django.forms.widgets import Textarea
+from products.models import Product
 from django import forms
 from categories.models import Category
 class NewProductForm(forms.Form):
@@ -16,3 +18,21 @@ class NewProductForm(forms.Form):
     image = forms.ImageField(label='Imagen del Producto', required=True, widget=forms.FileInput(attrs={
         'class':'form-control', 'id':'image', 'name':'image'
     }))
+
+class EditProductForm(forms.ModelForm):
+    title = forms.CharField(label='Titulo del Producto', required=True, min_length=4, max_length=50, widget=forms.TextInput(attrs={
+        'class':'form-control', 'id':'title'
+    }))
+    description = forms.CharField(label='Descripción',required=True, widget=forms.Textarea(attrs={
+        'class':'form-control', 'id':'description'
+    }))
+    price = forms.DecimalField(label='Precio',max_digits=16, decimal_places=2, widget=forms.NumberInput(attrs={
+        'class':'form-control', 'id':'price'
+    }))
+    image = forms.ImageField(label='Imagen del Producto', required=True, widget=forms.FileInput(attrs={
+        'class':'form-control', 'id':'image', 'name':'image'
+    }))
+
+    class Meta:
+        model = Product
+        fields = ('title', 'description', 'price', 'image')

@@ -1,7 +1,7 @@
 from categories.models import Category
 from django.http.response import HttpResponseRedirect
 from products.models import Product
-from jaguarete_store.forms import RegisterForm
+#from jaguarete_store.forms import RegisterForm
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.models import User
