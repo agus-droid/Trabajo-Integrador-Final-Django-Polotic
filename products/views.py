@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Product
 from django.contrib.auth.decorators import user_passes_test
-from .forms import NewProductForm, EditProductForm
+from .forms import NewProductForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from categories.models import Category
@@ -66,20 +66,28 @@ def new(request):
         'title': 'Nuevo Producto'
     })
 
-#Needs to be fixed
 @user_passes_test(lambda user: user.is_superuser)
 def edit(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    form = EditProductForm(request.POST, request.FILES, instance=product)
+    form = NewProductForm(request.POST, request.FILES)
     if request.method == 'POST' and form.is_valid():
-        form.save()
-    else:
-        form = EditProductForm()
-        return render(request, 'products/edit.html',{
-            'product':product,
-            'form':form
-        })
-    return redirect('index')
+        product.title = form.data.get('title')
+        product.description = form.data.get('description')
+        product.price = form.data.get('price')
+        cat_id = form.data.get('category')
+        product.image = request.FILES['image']
+        product.save()
+        if cat_id:
+            category = get_object_or_404(Category, id=cat_id)
+            category.save()
+            category.products.add(product)
+        if product:
+            messages.success(request, 'Producto editado exitosamente')
+            return redirect('index')
+    return render(request, 'products/new.html',{
+    'form':form ,
+    'title': 'Actualizar Producto'
+    })   
 
 @user_passes_test(lambda user: user.is_superuser)
 def delete(request, slug):
