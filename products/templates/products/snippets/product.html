@@ -5,6 +5,10 @@
             <img src="{{ product.image.url }}" alt="Imagen del Producto" class="card-img-top" height="300">
         {% endif %}
         <p class="card-text">{{ product.description }}</p>
-        <a href="{% url 'products:product' product.slug %}" class="btn btn-primary">Ver</a>                    
+        <a href="{% url 'products:product' product.slug %}" class="btn btn-primary">Ver</a>
+        {% if user.is_superuser %}
+        <a href="{% url 'products:edit' product.slug %}" class="btn btn-secondary">Editar</a>
+        <a href="{% url 'products:delete' product.slug %}" class="btn btn-danger">Eliminar</a>
+        {% endif %}                    
     </div>
 </div>

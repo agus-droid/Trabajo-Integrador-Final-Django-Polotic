@@ -1,7 +1,7 @@
-from django.forms.widgets import Textarea
 from products.models import Product
 from django import forms
 from categories.models import Category
+
 class NewProductForm(forms.Form):
     title = forms.CharField(label='Titulo del Producto', required=True, min_length=4, max_length=50, widget=forms.TextInput(attrs={
         'class':'form-control', 'id':'title'

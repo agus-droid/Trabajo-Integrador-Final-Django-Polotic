@@ -45,7 +45,7 @@ class ProductSearchListView(ListView):
         return context
 
 @user_passes_test(lambda user: user.is_superuser)
-def new_product(request):
+def new(request):
     form = NewProductForm(request.POST, request.FILES)
     if request.method == 'POST' and form.is_valid():
         title = form.data.get('title')
@@ -66,7 +66,9 @@ def new_product(request):
         'title': 'Nuevo Producto'
     })
 
-def edit_product(request, slug):
+#Needs to be fixed
+@user_passes_test(lambda user: user.is_superuser)
+def edit(request, slug):
     product = get_object_or_404(Product, slug=slug)
     form = EditProductForm(request.POST, request.FILES, instance=product)
     if request.method == 'POST' and form.is_valid():
@@ -77,4 +79,10 @@ def edit_product(request, slug):
             'product':product,
             'form':form
         })
-# continuar trabajando en esta parte
+    return redirect('index')
+
+@user_passes_test(lambda user: user.is_superuser)
+def delete(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    product.delete()
+    return redirect('index')

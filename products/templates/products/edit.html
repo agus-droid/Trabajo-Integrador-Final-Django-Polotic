@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Editar producto</h1>
-<form action="{% url 'products:edit_product' product.slug %}" method="post">
+<form action="{% url 'products:edit' product.slug %}" method="post">
     {% csrf_token %}
     {% for field in form %}
         <div class="mb-3">
