@@ -19,6 +19,8 @@ class NewProductForm(forms.Form):
         'class':'form-control', 'id':'image', 'name':'image'
     }))
 
+
+#Repensar esto, la imagen no carga y falta el Field para la categoría.
 class EditProductForm(forms.ModelForm):
     title = forms.CharField(label='Titulo del Producto', required=True, min_length=4, max_length=50, widget=forms.TextInput(attrs={
         'class':'form-control', 'id':'title'
