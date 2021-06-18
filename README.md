@@ -1,4 +1,4 @@
-# Trabajo-Integrador-Final-Django (WIP)
+# Trabajo-Integrador-Final-Django-Polotic (WIP)
 
 <h2>¿Que es esto?</h2> 
 
