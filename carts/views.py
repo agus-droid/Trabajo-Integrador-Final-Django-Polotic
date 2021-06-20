@@ -14,7 +14,11 @@ def cart(request):
 def add(request):
     cart = get_or_create_cart(request)
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))
-    quantity = int(request.POST.get('quantity', 1))
+    if int(request.POST.get('quantity', 1)) < 1:
+        quantity = 1
+    else:
+        quantity = int(request.POST.get('quantity', 1))
+    
     cart_product = CartProducts.objects.create_or_update_quantity(cart=cart,
                                                                     product=product, 
                                                                     quantity=quantity)
