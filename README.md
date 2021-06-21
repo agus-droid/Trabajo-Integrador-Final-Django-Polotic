@@ -8,6 +8,8 @@ En cuanto a cuestiones legales, le puse Creative Commons Zero v1.0 Universal por
 
 <h2>¿Como hago para que funcione?</h2>
 
+El deploy lo hice [acá](https://agusssosa.pythonanywhere.com) pero dejo instrucciones para descargarlo y correrlo por ustedes mismos.
+
 <h3>Windows</h3>
 
 Descargamos e instalamos la última versión de python desde [acá](https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe) (click en la palabra "acá" por favor, pero en la otra, no en esta).<br>
