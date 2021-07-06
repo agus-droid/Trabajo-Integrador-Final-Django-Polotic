@@ -6,14 +6,17 @@
                     {% csrf_token %}
                     {% for field in form %}
                         <div class="mb-3">
+                            <div class="form-label mb-3">
                             {{ field.label_tag }}
+                            </div>
                             {{ field }}
                             {% if field.errors %}
                                 {{ field.errors }}
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <input type="checkbox" class="mb-4" onclick="showPassword()"> Ver contraseña
+                    <input type="checkbox" class="mb-4" onclick="showPassword()"> 
+                    <span class="text-white">Ver contraseña</span>
                     <br>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>

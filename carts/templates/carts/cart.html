@@ -5,8 +5,8 @@
 
     {% if cart.products.exists %}
 
-        <div class="col-8 card card-body mb-2">
-            <table class="table">
+        <div class="col-8 mb-2 card card-body">
+            <table class="table-responsive">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">Producto</th>
@@ -21,7 +21,7 @@
                             <tr>
                                 <th>
                                     {% if product.image %}
-                                        <img src="{{ product.image.url }}" alt="Imagen del producto" width="60" height="60">
+                                        <img src="{{ product.image.url }}" alt="Imagen del producto" height="60">
                                     {% endif %}
                                     <a class="" href="{% url 'products:product' product.slug %}">
                                         {{ product.title }}

@@ -1,11 +1,11 @@
-        <h3 class="mt-2">Mas productos</h3>
-        <div class="card">
-            <ul class="list-group">
+        <h3 class="mt-4">Mas productos</h3>
+        <div class="mt-4">
                     {% for product in list %}
-                        <a class="list-group-item list-group-item-action" href="{% url 'products:product' product.slug %}">
+                    <div class="card mb-4">
+                        <a class="btn" href="{% url 'products:product' product.slug %}">
                             <span class="fw-bolder">{{ product.title }}</span>
                             <span class="fw-light">{{ product.description }}</span>
                         </a> 
+                    </div>
                     {% endfor %}
-            </ul>
         </div>

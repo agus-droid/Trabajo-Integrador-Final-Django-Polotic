@@ -2,13 +2,13 @@
 {% block content %}
     <h1>{{ title }}</h1>
     <form enctype="multipart/form-data" method="post">
-    {% csrf_token %}
+        {% csrf_token %}
         {% for field in form %}
         <div class="mb-3">
-            {{ field.label_tag }}
+            <span class="text-white">{{ field.label_tag }}</span>
             {{ field }}
             {% if field.errors %}
-                {{ field.errors }}
+                <span class="text-white">{{ field.errors }}</span>
             {% endif %}
         </div>
         {% endfor %}

@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>{{ product.title }}</h1>
-    <div class="col" style="width:140px">
+    <div class="col" style="">
         {% if product.image %}
-            <img src="{{ product.image.url }}" alt="Imagen del producto" width="200" height="200">
+            <img src="{{ product.image.url }}" alt="Imagen del producto" class="rounded">
         {% endif %}
     </div>
-    <div class="col">
+    <div class="col info">
         <p>{{ product.description }}</p>
-        <h5 class="font-weight-bold">
+        <h5 class="font-weight-bold text-white">
             Precio: <span class="text-danger">${{ product.price }}</span>
         </h5>
         <div class="">
