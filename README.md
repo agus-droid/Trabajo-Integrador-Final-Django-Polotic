@@ -27,7 +27,7 @@ Activamos el entorno
 
 Vamos a clonar el repositorio:
 
-    git clone https://github.com/agus-droid/Trabajo-Integrador-Final-Django.git
+    git clone https://github.com/agus-droid/Trabajo-Integrador-Final-Django-Polotic.git
     
 Instalamos los requisitos del proyecto
 
