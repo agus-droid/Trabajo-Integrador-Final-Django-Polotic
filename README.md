@@ -31,11 +31,11 @@ Vamos a clonar el repositorio:
     
 Instalamos los requisitos del proyecto
 
-    pip install -r .\Trabajo-Integrador-Final-Django\requirements.txt
+    pip install -r .\Trabajo-Integrador-Final-Django-Polotic\requirements.txt
 
 Ahora nos movemos dentro de la carpeta que se acaba de crear:
 
-    cd .\Trabajo-Integrador-Final-Django\
+    cd .\Trabajo-Integrador-Final-Django-Polotic\
 
 Por último tenemos que prender el servidor:
 
