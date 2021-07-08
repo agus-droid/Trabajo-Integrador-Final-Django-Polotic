@@ -9,9 +9,12 @@ class RegisterForm(forms.Form):
         'class':'form-control', 'id':'username'
     }))
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
-        'class':'form-control', 'id':'email', 'placeholder':'email@ejemplo.com' 
+        'class':'form-control', 'id':'email', 'placeholder':'ejemplode@email.com' 
     }))
     password = forms.CharField(label='Contraseña',required=True, min_length=4, max_length=50,widget=forms.PasswordInput(attrs={
+        'class':'form-control', 'id':'password'
+    }))
+    password2 = forms.CharField(label='Repetir Contraseña',required=True, min_length=4, max_length=50,widget=forms.PasswordInput(attrs={
         'class':'form-control', 'id':'password'
     }))
 
@@ -26,3 +29,8 @@ class RegisterForm(forms.Form):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError('El email se encuentra en uso')
         return email
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if cleaned_data.get('password2') != cleaned_data.get('password'):
+            self.add_error('password2','Las contraseñas no coinciden')

@@ -11,13 +11,10 @@
                             </div>
                             {{ field }}
                             {% if field.errors %}
-                                {{ field.errors }}
+                                <span class="text-white">{{ field.errors }}</span>
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <input type="checkbox" class="mb-4" onclick="showPassword()"> 
-                    <span class="text-white">Ver contraseña</span>
-                    <br>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>

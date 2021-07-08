@@ -2,10 +2,20 @@
         <div class="mt-4">
                     {% for product in list %}
                     <div class="card mb-4">
+                        {% if user.is_superuser %}
+                        <a class="btn" href="{% url 'products:edit' product.slug %}">
+                            <span class="fw-bolder">{{ product.title }}</span>
+                            <span class="fw-light">{{ product.description }}</span>
+                        </a>
+                        <a class="p-1 producto text-center text-white btn cursor" href="{% url 'products:delete' product.slug %}">
+                            ELIMINAR
+                        </a>
+                        {% else %}
                         <a class="btn" href="{% url 'products:product' product.slug %}">
                             <span class="fw-bolder">{{ product.title }}</span>
                             <span class="fw-light">{{ product.description }}</span>
-                        </a> 
+                        </a>
+                        {% endif %} 
                     </div>
                     {% endfor %}
         </div>

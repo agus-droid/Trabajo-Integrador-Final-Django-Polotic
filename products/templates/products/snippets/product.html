@@ -10,12 +10,14 @@
         </div>         
     </div>
     {% if user.is_superuser %}
-        <a class="p-3 producto text-center text-white mt-3 btn mt-auto" href="{% url 'products:edit' product.slug %}">
+        <div class="mt-auto d-flex justify-content-around">
+        <a class="p-3 producto text-center text-white btn" href="{% url 'products:edit' product.slug %}">
             ACTUALIZAR
         </a>
-        <a class="p-3 producto text-center text-white mt-1 btn cursor mt-auto" href="{% url 'products:delete' product.slug %}">
+        <a class="p-3 producto text-center text-white btn" href="{% url 'products:delete' product.slug %}">
             ELIMINAR
         </a>
+        </div>
     {% else %}
         <a class="p-3 producto text-center text-white mt-3 cursor btn mt-auto" href="{% url 'products:product' product.slug %}">
             VER

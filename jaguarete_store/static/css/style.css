@@ -44,11 +44,7 @@ body{
     border-bottom-right-radius: 20px;
 }
 
-h1, h2, h3{
-    color: #fff;
-}
-
-p{
+h1, h2, h3, p{
     color: #fff;
 }
 

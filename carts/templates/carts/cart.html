@@ -5,7 +5,7 @@
 
     {% if cart.products.exists %}
 
-        <div class="col-8 mb-2 card card-body">
+        <div class="col-8 mb-2 bg-light card-body" style="border-radius: 20px;">
             <table class="table-responsive">
                 <thead>
                     <tr>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="col">
-            <div class="card">
+            <div class="bg-light" style="border-radius: 20px;">
                 <div class="card-body">
                     <div class="">
                         Subtotal: <span class="text-danger">{{ cart.subtotal | price_format }}</span>
