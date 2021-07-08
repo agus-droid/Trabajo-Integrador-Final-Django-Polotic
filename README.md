@@ -36,6 +36,10 @@ Instalamos los requisitos del proyecto
 Ahora nos movemos dentro de la carpeta que se acaba de crear:
 
     cd .\Trabajo-Integrador-Final-Django-Polotic\
+    
+Aplicamos las migraciones:
+    
+    python .\manage.py migrate
 
 Por último tenemos que prender el servidor:
 
