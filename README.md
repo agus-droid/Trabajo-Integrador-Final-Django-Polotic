@@ -45,6 +45,6 @@ Por último tenemos que prender el servidor:
 
     python .\manage.py runserver
     
-<h2>¿Donde veo el trabajo? ¿Me acabás de hackear? Con razón no te da bola ninguna mujer.</h2>
+<h2>¿Donde veo el trabajo?</h2>
 
 Para ver el trabajo nos dirigimos a http://127.0.0.1:8000/ desde un navegador.
