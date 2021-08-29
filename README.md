@@ -4,7 +4,6 @@
 
 Esto es el trabajo integrador que me piden en el curso DESARROLLO WEB FULLSTACK CON PYTHON Y JAVASCRIPT (2021) de PoloTIC Misiones para darme el certificado.
 Por favor, primero lee el [enunciado](https://github.com/agus-droid/Trabajo-Integrador-Final-Django/blob/main/Enunciado.pdf).<br>
-En cuanto a cuestiones legales, le puse Creative Commons Zero v1.0 Universal por lo que cualquiera es libre de llevarse lo que quiera, modificarlo, venderlo, etc.
 
 <h2>¿Como hago para que funcione?</h2>
 
