@@ -3,7 +3,6 @@
 .card{
    border:none;
    outline:none;
-   background-color: #fff;
    border-radius: 20px;
    transition: transform .3s; 
 }
