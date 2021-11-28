@@ -2,10 +2,8 @@
 {% load product_extras %}
 {% block content %}
     <h1>Carrito</h1>
-
     {% if cart.products.exists %}
-
-        <div class="col-8 mb-2 bg-light card-body" style="border-radius: 20px;">
+        <div class="col-8 mb-2 card-body bg-dark" style="border-radius: 20px;">
             <table class="table-responsive">
                 <thead>
                     <tr>
@@ -42,7 +40,7 @@
         </div>
 
         <div class="col">
-            <div class="bg-light" style="border-radius: 20px;">
+            <div class="bg-dark" style="border-radius: 20px;">
                 <div class="card-body">
                     <div class="">
                         Subtotal: <span class="text-danger">{{ cart.subtotal | price_format }}</span>

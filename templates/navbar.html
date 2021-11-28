@@ -1,11 +1,21 @@
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'logout' as logout %}
+{% url 'carts:cart' as cart %}
+{% url 'index' as index %}
+{% load static %}
 {% url 'index' as index %}
 {% url 'about' as about %}
 {% url 'products:new' as new %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    <a class="navbar-brand mb-0 h1" href="{{ index }}">Jaguarete KAA</a>
     <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-lg-0">
         <li class="nav-item">
           <a class="nav-link {% if request.path == index %}active{% endif %}" href="{{ index }}">Home</a>
         </li>
@@ -30,7 +40,37 @@
         <li class="nav-item">
           <a class="nav-link {% if request.path == new %}active{% endif %}" href="{{ new }}">Nuevo Producto</a>
         </li>
-        {% endif %}                        
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav ms-auto mb-0 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link">
+          <span class="fas fa-user"></span>
+          {{user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == logout %}active{% endif %}" href="{{ logout }}">
+          <span class="fas fa-sign-in-alt"></span>
+          Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == login %}active{% endif %}" href="{{ login }}">
+          <span class="fas fa-user"></span>
+          Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == register %}active{% endif %}" href="{{ register }}">
+          <span class="fas fa-user-plus"></span>
+          Registro</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == cart %}active{% endif %}" href="{{ cart }}">
+          <span class="fas fa-shopping-cart"></span>
+          Carrito</a>
+        </li>  
       </ul>
       <form class="d-flex" action="{% url 'products:search' %}">
         <input class="form-control me-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="q" value="{{ query }}">
